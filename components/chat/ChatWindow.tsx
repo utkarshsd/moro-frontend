@@ -101,7 +101,10 @@ export default function ChatWindow() {
 
         <div className="flex-1 overflow-y-auto">
 
-          <MessageList messages={messages} />
+          <MessageList
+            messages={messages}
+            loading={loading}
+          />
 
         </div>
 
