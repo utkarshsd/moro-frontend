@@ -1,5 +1,8 @@
 "use client";
 
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 import { ChatMessage } from "@/types/chat";
 
 interface MessageBubbleProps {
@@ -17,14 +20,23 @@ export default function MessageBubble({
                 }`}
         >
             <div
-                className={`max-w-[75%] rounded-3xl px-5 py-4 shadow-lg transition-all ${isUser
+                className={`max-w-[80%] rounded-3xl px-5 py-4 shadow-lg ${isUser
                         ? "bg-blue-600 text-white"
-                        : "bg-slate-800 text-slate-100"
+                        : "border border-slate-700 bg-slate-900/80 text-slate-100"
                     }`}
             >
-                <p className="whitespace-pre-wrap leading-7">
-                    {message.content}
-                </p>
+                {!isUser && (
+                    <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-blue-400">
+                        <span>✦</span>
+                        <span>MORO</span>
+                    </div>
+                )}
+
+                <div className="prose prose-invert max-w-none">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {message.content}
+                    </ReactMarkdown>
+                </div>
             </div>
         </div>
     );
