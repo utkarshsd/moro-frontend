@@ -2,6 +2,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+# Status
+
+🟢 Version: v1.0.0
+
+Core chat system is operational.
+
+---
+
 First, run the development server:
 
 ```bash
